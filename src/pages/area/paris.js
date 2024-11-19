@@ -1,20 +1,24 @@
 /** @format */
 "use client";
+
+import FAQSection from "@/components/FAQSection";
+import FeaturesSection from "@/components/FeaturesSection";
 import Hero from "@/components/Hero";
-import RootLayout from "../components/Layout";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import RootLayout from "@/components/Layout";
+import ReviewCard from "@/components/ReviewCard";
+import ServiceArea from "@/components/ServiceArea";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import ReviewCard from "@/components/ReviewCard";
-import FeaturesSection from "@/components/FeaturesSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
+import LuggageStorageCarousel from "../../components/LuggageStorageCarousel";
 import LuggageStorageSection from "@/components/LuggageStorageSection";
-import FAQSection from "@/components/FAQSection";
-import CountryMapView from "@/components/CountryMapView";
-import ServiceArea from "@/components/ServiceArea";
+import CityGuideSection from "@/components/CityGuideSection";
+
 // import NavBar from "@/components/NavBar";
 
-export default function Home() {
+const Paris = () => {
   const reviews = [
     {
       id: 1,
@@ -59,14 +63,21 @@ export default function Home() {
   return (
     <RootLayout>
       <main className="flex min-h-screen flex-col justify-between pl-4 pr-4">
-        <Hero />
+        <Hero area={" in Paris"} />
 
         <section>
           <HowItWorksSection />
         </section>
-        {/* <section>
-          <CountryMapView />
-        </section> */}
+        <section>
+          <WhyChooseUs />
+        </section>
+        <section>
+          <LuggageStorageCarousel />
+        </section>
+        <section>
+          <CityGuideSection />
+        </section>
+
         <section>
           <FeaturesSection />
         </section>
@@ -97,4 +108,5 @@ export default function Home() {
       </main>
     </RootLayout>
   );
-}
+};
+export default Paris;

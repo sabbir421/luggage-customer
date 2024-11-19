@@ -1,166 +1,144 @@
 /** @format */
 
-import React, { useRef, useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
-  faTwitter,
-  faGoogle,
   faInstagram,
   faLinkedin,
-  faGithub,
 } from "@fortawesome/free-brands-svg-icons";
+import Image from "next/image";
 import appleIcon from "../images/file.png";
 import playStoreIcon from "../images/playStoreIcon.png";
-import Image from "next/image";
+
 const Footer = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const hoverBoxRef = useRef(null);
   const appStore = () => {
     const url = "https://apps.apple.com/us/app/doorap/id6444723041";
     window.open(url, "_blank");
-
-    setIsHovered(false);
   };
+
   const playStore = () => {
     const url = "https://play.google.com/store/apps/details?id=com.app.doorAp";
     window.open(url, "_blank");
-
-    setIsHovered(false);
   };
-  console.log("-------------" > isHovered);
 
   return (
-    <footer className="  py-3 mt-5 flex flex-col     text-surface dark:bg-neutral-700 dark:text-white">
-      <div className="   px-6 w-full justify-between grid  gap-4 md:grid-cols-3 sm:grid-cols-2 max-sm:grid-cols-2 lg:grid-cols-3">
-        <div className="mb-6 flex-col justify-center items-center    ">
-          <h5 className="mb-2.5 mr-[86px]  font-bold uppercase">DOORAP</h5>
-
-          <ul className="mb-0  flex-col justify-start  inline-block ">
-            <li className="flex   justify-start items-center mb-2  ">
+    <footer className="bg-gray-900 text-gray-300 py-8">
+      {/* Main container */}
+      <div className="container mx-auto px-8 lg:px-16">
+        {/* Flex container for three sections */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-8">
+          {/* Logo & App Store Buttons Section */}
+          <div className="space-y-4">
+            <h5 className="text-3xl font-extrabold text-white">DOORAP</h5>
+            <div className="flex flex-col gap-4">
               <button
                 onClick={appStore}
-                className="p-1 bg-[#f1f1f1] mb-[8px] flex items-center justify-start gap-[4px] border-[1px] border-slate-600 rounded-2xl w-[120px] sm:w-[100px] md:w-[120px] lg:w-[140px] h-[35px] sm:h-[30px] md:h-[35px] lg:h-[40px] cursor-pointer"
+                className="flex items-center gap-3 bg-gray-800 text-white rounded-lg px-4 py-2 transition-transform duration-300 hover:scale-105 hover:bg-gray-700"
               >
-                <div className="flex items-center h-[20px] w-[20px] sm:h-[15px] sm:w-[15px] md:h-[20px] md:w-[20px] lg:h-[25px] lg:w-[25px]">
-                  <Image
-                    src={appleIcon}
-                    alt="icon"
-                    className="text-white mb-[3px]"
-                  />
-                </div>
-                <div className="flex flex-col justify-between p-[2px]">
-                  <h3 className="text-[#373333] text-[8px] sm:text-[6px] md:text-[8px] lg:text-[10px] -mb-[2px]">
-                    Download on the
-                  </h3>
-                  <h3 className="text-[#373333] text-[8px] sm:text-[6px] md:text-[8px] lg:text-[10px] -mt-[3px]">
-                    App Store
-                  </h3>
+                <Image src={appleIcon} alt="Apple Icon" className="w-6 h-6" />
+                <div>
+                  <span className="block text-xs">Download on the</span>
+                  <span className="font-semibold text-sm">App Store</span>
                 </div>
               </button>
-            </li>
-            <li className="flex   justify-start items-center mb-2  ">
               <button
                 onClick={playStore}
-                className="p-1 bg-[#f1f1f1] flex items-center justify-center gap-[4px] border-[1px] border-slate-600 rounded-2xl w-[120px] sm:w-[100px] md:w-[120px] lg:w-[140px] h-[35px] sm:h-[30px] md:h-[35px] lg:h-[40px] cursor-pointer"
+                className="flex items-center gap-3 bg-gray-800 text-white rounded-lg px-4 py-2 transition-transform duration-300 hover:scale-105 hover:bg-gray-700"
               >
-                <div className="flex justify-center items-center h-[20px] w-[20px] sm:h-[15px] sm:w-[15px] md:h-[20px] md:w-[20px] lg:h-[25px] lg:w-[25px] mr-[4px]">
-                  <Image
-                    src={playStoreIcon}
-                    alt="icon"
-                    className="text-white mb-[3px]"
-                  />
-                </div>
-                <div className="flex flex-col justify-between p-[2px]">
-                  <h3 className="text-[#373333] text-[8px] sm:text-[6px] md:text-[8px] lg:text-[10px] -mb-[2px]">
-                    Get It On
-                  </h3>
-                  <h3 className="text-[#373333] text-[8px] sm:text-[6px] md:text-[8px] lg:text-[10px] -mt-[3px]">
-                    Play Store
-                  </h3>
+                <Image
+                  src={playStoreIcon}
+                  alt="Play Store Icon"
+                  className="w-6 h-6"
+                />
+                <div>
+                  <span className="block text-xs">Get it on</span>
+                  <span className="font-semibold text-sm">Play Store</span>
                 </div>
               </button>
-            </li>
-            <li className="flex justify-start items-center mb-2 ">
-              <a href="#!">Reviews</a>
-            </li>
-            <li className="flex justify-start items-center mb-2 ">
-              <a href="#!">Become a partner</a>
-            </li>
-            <li className="flex justify-start items-center mb-2 ">
-              <a href="#!">Blog</a>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </div>
 
-        <div className="mb-6  flex flex-col 2xl:items-center xl:items-center lg:items-center md:items-start sm:items-start max-sm:items-start ">
-          <h5 className="mb-2.5 mr-[10px] font-bold uppercase">Policy</h5>
+          {/* Policy Links Section */}
+          <div className="space-y-4">
+            <h5 className="text-xl font-bold text-white">Policy</h5>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="/privacy-policy"
+                  className="hover:text-white transition-all duration-300"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/terms-conditions"
+                  className="hover:text-white transition-all duration-300"
+                >
+                  Terms & Conditions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/contact"
+                  className="hover:text-white transition-all duration-300"
+                >
+                  Contact Support
+                </a>
+              </li>
+            </ul>
+          </div>
 
-          <ul className="mb-0 flex-col justify-center  inline-block ">
-            <li className="flex justify-start items-center mb-2 ">
-              <a href="/privacy-policy">Privacy policy</a>
-            </li>
-            <li className="flex justify-start items-center mb-2 ">
-              <a href="terms-conditions">Terms & Conditions</a>
-            </li>
-            <li className="flex justify-start items-center mb-2 ">
-              <a href="/contact">Contact Support</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="mb-6 flex flex-col 2xl:items-end xl:items-end lg:items-end md:items-end sm:items-start max-sm:items-start ">
-          <h5 className="mb-2.5  mr-[8px] font-bold uppercase">FOLLOW US</h5>
-
-          <ul className="mb-0  flex flex-col items-start">
-            <li className="flex items-center  mb-1">
-              <a
-                href="https://www.instagram.com/doorap.uk?igsh=MWZjNGFza2Q0b25hdw=="
-                target="blank"
-                className="flex items-center"
-              >
-                <span className="mr-3 h-[14px] w-[14px] text-[#373333]">
+          {/* Social Media Section */}
+          <div className="space-y-4">
+            <h5 className="text-xl font-bold text-white">Follow Us</h5>
+            <ul className="flex space-x-6 text-2xl">
+              <li>
+                <a
+                  href="https://www.instagram.com/doorap.uk?igsh=MWZjNGFza2Q0b25hdw=="
+                  target="_blank"
+                  className="hover:text-white transition-transform duration-300 hover:scale-110"
+                >
                   <FontAwesomeIcon icon={faInstagram} />
-                </span>
-                Instagram
-              </a>
-            </li>
-
-            <li className="flex items-center  mb-1">
-              <a
-                href="https://www.facebook.com/profile.php?id=61556335572862&mibextid=ZbWKwL"
-                target="blank"
-                className="flex gap-[6px] items-center"
-              >
-                <span className="mr-3 h-[10px] w-[10px] text-[#373333]">
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61556335572862&mibextid=ZbWKwL"
+                  target="_blank"
+                  className="hover:text-white transition-transform duration-300 hover:scale-110"
+                >
                   <FontAwesomeIcon icon={faFacebookF} />
-                </span>
-                Facebook
-              </a>
-            </li>
-
-            <li className="flex justify-start items-start  mb-1">
-              <a
-                href="https://www.linkedin.com/company/doorapltd/"
-                target="blank"
-                className="flex items-center"
-              >
-                <span className="mr-3 h-[14px] w-[14px] text-[#373333]">
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/doorapltd/"
+                  target="_blank"
+                  className="hover:text-white transition-transform duration-300 hover:scale-110"
+                >
                   <FontAwesomeIcon icon={faLinkedin} />
-                </span>
-                Linkedin
-              </a>
-            </li>
-          </ul>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      {/* Copyright section */}
-      <div className=" flex justify-center p-4 text-center dark:bg-neutral-600">
-        <span>© 2024 Copyright:</span>
-        <a className="font-semibold text-neutral-600 dark:text-neutral-400">
-          doorap.com
-        </a>
+        {/* Divider Line */}
+        <div className="border-t border-gray-700 my-6"></div>
+
+        {/* Copyright Section */}
+        <div className="text-center text-sm text-gray-500">
+          <span>© 2024 </span>
+          <a
+            href="https://doorap.com"
+            className="font-semibold text-gray-300 hover:text-white transition-colors duration-300"
+          >
+            doorap.com
+          </a>
+          <span> | All Rights Reserved</span>
+        </div>
       </div>
     </footer>
   );
