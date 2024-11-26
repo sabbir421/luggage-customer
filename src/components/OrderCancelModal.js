@@ -1,12 +1,12 @@
 import {
   cancelOrder,
   getActiveOrder,
-} from "@/store/bookingSlice.js/bookingSlice";
+} from "../store/bookingSlice.js/bookingSlice";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const OrderCancelModal = ({ order, onClose }) => {
-  console.log("---------------", order);
+  
   const { token, loginUser } = useSelector((state) => state.userData);
   const dispatch = useDispatch();
   const submitRefund = async () => {

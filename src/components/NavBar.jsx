@@ -11,11 +11,12 @@ import playStoreIcon from "../images/playStoreIcon.png";
 import { Menu, MenuItem } from "@mui/material";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "@/store/userSlice/userSlice";
-import { clearStoreData } from "@/store/storeSlice/storeSlice";
-import { clearBookingData } from "@/store/bookingSlice.js/bookingSlice";
+
+import { clearStoreData } from "../store/storeSlice/storeSlice";
+import { clearBookingData } from "../store/bookingSlice.js/bookingSlice";
 import { signOut } from "firebase/auth";
-import { auth, googleProvider } from "@/utils/firebaseConfig";
+import { auth, googleProvider } from "../utils/firebaseConfig";
+import { logoutUser } from "../store/userSlice/userSlice";
 const NavBar = () => {
   const [isHovered, setIsHovered] = useState(false);
   const hoverBoxRef = useRef(null);

@@ -1,14 +1,14 @@
 import {
   clickedOrder,
   getActiveOrder,
-} from "@/store/bookingSlice.js/bookingSlice";
+} from "../store/bookingSlice.js/bookingSlice";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaMapMarkerAlt, FaTimes, FaBriefcase } from "react-icons/fa";
 import { useRouter } from "next/router";
-import OrderCancelModal from "@/components/OrderCancelModal";
-import ClientLandingNav from "@/components/ClientLandingNav";
-import PrivateRoute from "@/components/PrivateRoute";
+import OrderCancelModal from "../components/OrderCancelModal";
+import ClientLandingNav from "../components/ClientLandingNav";
+import PrivateRoute from "../components/PrivateRoute";
 
 const BookingHistoryCard = () => {
   const [isClient, setIsClient] = useState(false);

@@ -13,9 +13,9 @@ import {
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Button, TextField } from "@mui/material";
-import { appleProvider, auth, googleProvider } from "@/utils/firebaseConfig";
+import { appleProvider, auth, googleProvider } from "../utils/firebaseConfig";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserData } from "@/store/userSlice/userSlice";
+import { fetchUserData } from "../store/userSlice/userSlice";
 import { useRouter } from "next/router";
 
 const Login = () => {

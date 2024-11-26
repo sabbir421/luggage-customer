@@ -6,26 +6,16 @@ import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
 import { useRouter } from "next/router";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import TimePicker from "react-time-picker";
 import "react-time-picker/dist/TimePicker.css";
 import "react-clock/dist/Clock.css";
-
-// stripe --- payment ----->
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-
-// end --->>>
-// mui--->
 import dayjs from "dayjs";
 import { useDispatch, useSelector } from "react-redux";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-
-// ---->
-
 import ClientLandingNav from "@/components/ClientLandingNav";
 import { GoClockFill } from "react-icons/go";
 import { BsFillLuggageFill } from "react-icons/bs";
@@ -69,7 +59,6 @@ const Clientlandingtwo = () => {
   const [lugNumber, setLugNumber] = useState(1);
   const [showStartModal, setShowStartModal] = useState(false);
   const [showEndModal, setShowEndModal] = useState(false);
-  const [hoveredMarker, setHoveredMarker] = useState(null);
   const [paymentOptionModal, setPaymentOptionModal] = useState(false);
 
   // date time from modal --->

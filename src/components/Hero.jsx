@@ -8,7 +8,7 @@ import heroImg from "../images/luggage4.png";
 import { LoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchLocation } from "@/store/storeSlice/storeSlice";
+import { setSearchLocation } from "../store/storeSlice/storeSlice";
 import { Box, Button, Typography } from "@mui/material";
 
 const Hero = ({ area }) => {

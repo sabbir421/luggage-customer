@@ -15,19 +15,14 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 import { useDispatch, useSelector } from "react-redux";
-import ClientLandingNav from "@/components/ClientLandingNav";
-import { GoClockFill } from "react-icons/go";
+import ClientLandingNav from "../components/ClientLandingNav";
 import Image from "next/image";
-import navLogo from "../images/textLogo.png";
-import light from "../images/vendor/Light Bulb.svg";
-import secure from "../images/vendor/Secure.svg";
-import star from "../images/vendor/Star.svg";
+
 // --
 import { fetchStoreList } from "../store/storeSlice/storeSlice";
 import { setSelectedStore } from "../store/storeSlice/storeSlice";
 
-import PrivateRoute from "@/components/PrivateRoute";
-import { Typography } from "@mui/material";
+import PrivateRoute from "../components/PrivateRoute";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -47,10 +42,8 @@ const Clientslandingone = () => {
   const [coords, setCoords] = useState({ lat: null, lng: null });
   const [distance, setDistance] = useState(0);
   const [isCollapsed, setIsCollapsed] = useState(Array(12).fill(true));
-  const [hoveredMarker, setHoveredMarker] = useState(null);
   const [activeMarker, setActiveMarker] = useState(null);
-  const [lat, setLat] = useState();
-  const [lan, setLan] = useState();
+
 
   useEffect(() => {
     handleLocation();
@@ -118,7 +111,7 @@ const Clientslandingone = () => {
     dispatch(setSelectedStore(storeInfo));
 
     router.push({
-      pathname: "/clientlandingtwo",
+      pathname: "/checkout",
     });
   };
 
@@ -165,16 +158,6 @@ const Clientslandingone = () => {
     <PrivateRoute>
       <section className="w-full h-screen">
       <ClientLandingNav />
-        {/* <div className="flex flex-col md:flex-row justify-between items-center w-full h-auto md:h-20 p-4">
-          <div className="flex justify-center items-center">
-            <Image
-              src={navLogo}
-              alt="logo"
-              className="h-[54px] w-[150px]"
-              style={{ marginLeft: "20px" }}
-            />
-          </div>
-        </div> */}
 
         <div className="clientLandingOneMain flex flex-col lg:flex-row">
           {/* Left: Store List */}

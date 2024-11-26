@@ -1,17 +1,17 @@
 /** @format */
 "use client";
-import Hero from "@/components/Hero";
+import Hero from "../components/Hero";
 import RootLayout from "../components/Layout";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import ReviewCard from "@/components/ReviewCard";
-import FeaturesSection from "@/components/FeaturesSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import LuggageStorageSection from "@/components/LuggageStorageSection";
-import FAQSection from "@/components/FAQSection";
-import CountryMapView from "@/components/CountryMapView";
-import ServiceArea from "@/components/ServiceArea";
+import ReviewCard from "../components/ReviewCard";
+import FeaturesSection from "../components/FeaturesSection";
+import HowItWorksSection from "../components/HowItWorksSection";
+import LuggageStorageSection from "../components/LuggageStorageSection";
+import FAQSection from "../components/FAQSection";
+
+import ServiceArea from "../components/ServiceArea";
 // import NavBar from "@/components/NavBar";
 
 export default function Home() {

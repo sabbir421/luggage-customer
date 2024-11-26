@@ -13,11 +13,11 @@ import navLogo from "../images/textLogo.png";
 import { Menu, MenuItem } from "@mui/material";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import { logoutUser } from "@/store/userSlice/userSlice";
-import { clearStoreData } from "@/store/storeSlice/storeSlice";
-import { clearBookingData } from "@/store/bookingSlice.js/bookingSlice";
+import { logoutUser } from "../store/userSlice/userSlice";
+import { clearStoreData } from "../store/storeSlice/storeSlice";
+import { clearBookingData } from "../store/bookingSlice.js/bookingSlice";
 import { signOut } from "firebase/auth";
-import { auth, googleProvider } from "@/utils/firebaseConfig";
+import { auth, googleProvider } from "../utils/firebaseConfig";
 
 const ClientLandingNav = () => {
   const router = useRouter();
