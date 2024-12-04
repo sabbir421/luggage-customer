@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Card,
@@ -15,55 +15,79 @@ import {
 } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
 import { useSelector } from "react-redux";
-import { loadStripe } from "@stripe/stripe-js";
 import CheckoutButton from "./PaymentForm";
+
 export default function Bookingdata() {
   const { selectedStore } = useSelector((state) => state.storeData);
   const { loginUser } = useSelector((state) => state.userData);
 
   const [quantity, setQuantity] = useState(1);
-  const [checkInTime, setCheckInTime] = useState(
-    selectedStore.wednesdayStrtTime || ""
-  );
-  const [checkOutTime, setCheckOutTime] = useState(
-    selectedStore.wednesdayCloseTime || ""
-  );
+  const [checkInTime, setCheckInTime] = useState("");
+  const [checkOutTime, setCheckOutTime] = useState("");
+  const [checkInDate, setCheckInDate] = useState("");
+  const [checkOutDate, setCheckOutDate] = useState("");
+  const [numOfDays, setNumOfDays] = useState(1); // Default to 1 day
 
-  // Determine today's store status dynamically
-  const status = getStoreStatus(
-    selectedStore.wednesdayStatus,
-    selectedStore.wednesdayFull,
-    checkInTime,
-    checkOutTime
-  );
+  // Calculate the number of days between check-in and check-out dates
+  let diffTime = 1;
+  useEffect(() => {
+    const calculateDuration = (checkInDate, checkOutDate) => {
+      if (!checkInDate || !checkOutDate) return 1; // Default to 1 day if invalid input
+
+      const checkIn = new Date(checkInDate);
+      const checkOut = new Date(checkOutDate);
+
+      diffTime = checkOut - checkIn;
+      if (diffTime <= 0) return 1; // Ensure valid date range
+
+      const days = Math.floor(diffTime / (1000 * 3600 * 24)) + 1; // +1 to include the check-in day
+
+      return days;
+    };
+
+    const days = calculateDuration(checkInDate, checkOutDate);
+    setNumOfDays(days); // Update numOfDays based on the calculated duration
+  }, [checkInDate, checkOutDate]); // Re-run when check-in or check-out date changes
+
+  const totalPrice =
+    selectedStore?.price * numOfDays * quantity + selectedStore?.tax;
+
   const data = {
-    price: selectedStore.price * quantity,
-    customrName: loginUser?.name,
+    price: selectedStore?.price * quantity,
+    customerName: loginUser?.name,
     customerId: loginUser?.id,
     storeName: selectedStore?.storeName,
     storeId: selectedStore?.id,
     providerName: selectedStore?.providerName,
-    providerId: selectedStore?.providerId,
-    hour: 1,
+    providerID: selectedStore?.providerID,
     storeLat: selectedStore?.mapLat,
-    storeLan: selectedStore?.mapLan,
+    storeLng: selectedStore?.mapLan,
     location: selectedStore?.address,
     quantity,
     checkOutTime,
     checkInTime,
-    checkinDate: "",
-    checkoutDate: "",
-    total: selectedStore.price * quantity + selectedStore?.tax,
+    checkinDate: checkInDate,
+    checkoutDate: checkOutDate,
+    total: totalPrice,
     tax: selectedStore?.tax,
-    numOfDay: 1,
+    numOfDay: numOfDays,
     storePrice: selectedStore?.price,
-
-    // currency: store?.countryName === "France" ? "Euro" : "Pound",
-    // currencySymbol: store?.countryName === "France" ? "€" : "£",
-    // currencyCode: store?.countryName === "France" ? "EUR" : "GBP",
+    currency: selectedStore?.currency,
+    currencySymbol: selectedStore?.currencySymbol,
+    currencyCode: selectedStore?.currencyCode,
+    hour: diffTime,
   };
 
-  
+  const handleIncreaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleDecreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   return (
     <Container maxWidth="sm" sx={{ py: 4 }}>
       <Paper
@@ -113,8 +137,8 @@ export default function Bookingdata() {
               {selectedStore.countryName}
             </Typography>
             <Chip
-              label={status === "Active" ? "Open Now" : "Closed"}
-              color={status === "Active" ? "success" : "error"}
+              label="Open Now"
+              color="success"
               sx={{
                 mt: 1,
                 fontWeight: "bold",
@@ -124,7 +148,7 @@ export default function Bookingdata() {
           </Box>
         </Card>
 
-        {/* Check-in and Check-out Times */}
+        {/* Check-in and Check-out */}
         <Paper
           elevation={3}
           sx={{
@@ -145,10 +169,32 @@ export default function Bookingdata() {
           </Typography>
           <Box sx={{ mt: 2 }}>
             <TextField
+              label="Check-in Date"
+              type="date"
+              value={checkInDate}
+              onChange={(e) => setCheckInDate(e.target.value)}
+              fullWidth
+              InputLabelProps={{
+                shrink: true,
+              }}
+              sx={{ mb: 2 }}
+            />
+            <TextField
               label="Check-in Time"
               type="time"
               value={checkInTime}
               onChange={(e) => setCheckInTime(e.target.value)}
+              fullWidth
+              InputLabelProps={{
+                shrink: true,
+              }}
+              sx={{ mb: 2 }}
+            />
+            <TextField
+              label="Check-out Date"
+              type="date"
+              value={checkOutDate}
+              onChange={(e) => setCheckOutDate(e.target.value)}
               fullWidth
               InputLabelProps={{
                 shrink: true,
@@ -168,7 +214,7 @@ export default function Bookingdata() {
           </Box>
         </Paper>
 
-        {/* Quantity and Price */}
+        {/* Quantity and Price Section */}
         <Paper
           elevation={3}
           sx={{
@@ -179,84 +225,44 @@ export default function Bookingdata() {
             mb: 3,
           }}
         >
-          <Typography
-            variant="h6"
-            fontWeight="bold"
-            gutterBottom
-            sx={{ color: "#3f51b5" }}
-          >
-            Quantity
+          <Typography variant="h6" fontWeight="bold" gutterBottom>
+            Quantity & Price
           </Typography>
-          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-            <IconButton
-              onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-              color="primary"
-              size="small"
-            >
-              <Remove />
-            </IconButton>
-            <Typography
-              variant="h5"
-              fontWeight="bold"
-              sx={{ mx: 2, color: "#333" }}
-            >
-              {quantity}
-            </Typography>
-            <IconButton
-              onClick={() => setQuantity((prev) => prev + 1)}
-              color="primary"
-              size="small"
-            >
-              <Add />
-            </IconButton>
-          </Box>
-          <Divider />
-          <Box sx={{ mt: 2 }}>
-            <Typography variant="body1">
-              <strong>Price:</strong> {selectedStore.currencySymbol}
-              {selectedStore.price * quantity}
-            </Typography>
-            <Typography variant="body1">
-              <strong>Tax:</strong> {selectedStore.currencySymbol}
-              {selectedStore.tax}
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{
-                mt: 1,
-                fontWeight: "bold",
-                color: "#3f51b5",
-              }}
-            >
-              Total: {selectedStore.currencySymbol}
-              {selectedStore.tax + selectedStore.price * quantity}
-            </Typography>
-          </Box>
+          <Grid container spacing={2} alignItems="center">
+            <Grid item>
+              <IconButton
+                color="primary"
+                onClick={handleDecreaseQuantity}
+                disabled={quantity <= 1}
+              >
+                <Remove />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <Typography variant="h6">{quantity}</Typography>
+            </Grid>
+            <Grid item>
+              <IconButton color="primary" onClick={handleIncreaseQuantity}>
+                <Add />
+              </IconButton>
+            </Grid>
+            <Grid item xs={12} sx={{ mt: 2 }}>
+              <Typography variant="h6" fontWeight="bold" sx={{ mb: 1 }}>
+                Total: {selectedStore?.currencySymbol}
+                {totalPrice}
+              </Typography>
+              <Typography variant="body1">
+                Days: {numOfDays} | Price per day:{" "}
+                {selectedStore?.currencySymbol}
+                {selectedStore?.price}
+              </Typography>
+            </Grid>
+          </Grid>
         </Paper>
 
-        {/* Pay Now Button */}
-        <Grid container justifyContent="center">
-          <CheckoutButton data={data} />
-        </Grid>
+        {/* Payment Button */}
+        <CheckoutButton data={data} />
       </Paper>
     </Container>
   );
 }
-
-// Helper function to determine the store's status
-const getStoreStatus = (dayStatus, fullDay, startTime, closeTime) => {
-  if (!dayStatus) return "Closed"; // If the day is not active, it's Closed.
-  if (fullDay) return "Active"; // If fullDay is true, always Active.
-
-  // Parse times into Date objects for the current day
-  const parseTime = (time) => {
-    const [hours, minutes] = time.split(":").map(Number);
-    return new Date(new Date().setHours(hours, minutes, 0, 0));
-  };
-
-  const now = new Date();
-  const start = parseTime(startTime);
-  const close = parseTime(closeTime);
-
-  return now >= start && now <= close ? "Active" : "Closed";
-};

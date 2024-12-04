@@ -1,24 +1,23 @@
 /** @format */
 "use client";
 
-import FAQSection from "@/components/FAQSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import Hero from "@/components/Hero";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import RootLayout from "@/components/Layout";
-import ReviewCard from "@/components/ReviewCard";
-import ServiceArea from "@/components/ServiceArea";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import { Button } from "@mui/material";
+import FAQSection from "../../components/FAQSection";
+import FeaturesSection from "../../components/FeaturesSection";
+import Hero from "../../components/Hero";
+import HowItWorksSection from "../../components/HowItWorksSection";
+import RootLayout from "../../components/Layout";
+import ReviewCard from "../../components/ReviewCard";
+import ServiceArea from "../../components/ServiceArea";
+import WhyChooseUs from "../../components/WhyChooseUs";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import LuggageStorageCarousel from "../../components/LuggageStorageCarousel";
-import LuggageStorageSection from "@/components/LuggageStorageSection";
-import CityGuideSection from "@/components/CityGuideSection";
+import LuggageStorageSection from "../../components/LuggageStorageSection";
+import CityGuideSection from "../../components/CityGuideSection";
 
 // import NavBar from "@/components/NavBar";
 
-const Paris = () => {
+const Australia = () => {
   const reviews = [
     {
       id: 1,
@@ -63,7 +62,7 @@ const Paris = () => {
   return (
     <RootLayout>
       <main className="flex min-h-screen flex-col justify-between pl-4 pr-4">
-        <Hero area={" in Paris"} />
+        <Hero area={" in Australia"} />
 
         <section>
           <HowItWorksSection />
@@ -87,7 +86,7 @@ const Paris = () => {
         >
           <div className="container mx-auto">
             <h2 className="text-3xl font-semibold text-center text-gray-800 mb-8">
-              Customer Reviews
+              Customer Reviews in Australia
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {reviews.map((review) => (
@@ -109,4 +108,4 @@ const Paris = () => {
     </RootLayout>
   );
 };
-export default Paris;
+export default Australia;

@@ -14,14 +14,36 @@ const BookingHistoryCard = () => {
   const [isClient, setIsClient] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState(null);
-
+  const router = useRouter(); // Use Next.js router
+  const { session_id } = router.query; // Extract query parameter from the URL
   const { token, loginUser } = useSelector((state) => state.userData);
   const { orderList } = useSelector((state) => state.luggageBookingData);
   const dispatch = useDispatch();
-  const router = useRouter();
 
+  // Fetch and validate session ID (if available)
   useEffect(() => {
-    setIsClient(true);
+    if (session_id) {
+      fetch(`http://localhost:8081/payment/validate-payment`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionId: session_id }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            dispatch(getActiveOrder({ token, customerId: loginUser?.id }));
+            console.log("Payment verified and booking saved:", data.booking);
+          } else {
+            console.error("Payment verification failed:", data.message);
+          }
+        })
+        .catch((error) => console.error("Error validating payment:", error));
+    }
+  }, [session_id]);
+
+  // Fetch active orders
+  useEffect(() => {
+    setIsClient(true); // Fix hydration issues
     if (token && loginUser?.id) {
       dispatch(getActiveOrder({ token, customerId: loginUser?.id }));
     }
@@ -34,18 +56,19 @@ const BookingHistoryCard = () => {
 
   const handleCancelBooking = (order) => {
     setSelectedOrder(order);
-    setIsModalOpen(true); // Open modal
+    setIsModalOpen(true); // Open the cancellation modal
   };
 
   const handleTrackOrder = (order) => {
     dispatch(clickedOrder(order));
-    router.push("/ordertrackpage");
+    router.push("/ordertrackpage"); // Navigate to the tracking page
   };
 
   const closeModal = () => {
-    setIsModalOpen(false); // Close modal
+    setIsModalOpen(false); // Close the modal
   };
 
+  // Avoid rendering during SSR
   if (!isClient) {
     return null;
   }
@@ -161,7 +184,7 @@ const BookingHistoryCard = () => {
                       ? "bg-red-500 hover:bg-red-700"
                       : "bg-gray-300 cursor-not-allowed"
                   } text-white font-bold py-2 px-4 rounded-lg flex items-center`}
-                  disabled={order.status !== "Drop-off"} // Disable the button if status is not "Drop-off"
+                  disabled={order.status !== "Drop-off"} // Disable if not "Drop-off"
                 >
                   <FaTimes className="mr-2" />
                   Cancel Booking

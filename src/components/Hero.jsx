@@ -9,7 +9,7 @@ import { LoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchLocation } from "../store/storeSlice/storeSlice";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const Hero = ({ area }) => {
   const router = useRouter();
@@ -160,14 +160,31 @@ const Hero = ({ area }) => {
           alt="Luggage Storage Hero"
           width={500}
           height={300}
-          style={{
-            borderRadius: "15px",
-            transition: "transform 0.3s ease",
-            boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
-          }}
-          className="hover:scale-105"
+          className="hero-image"
         />
       </Box>
+
+      {/* Hover rotation styles */}
+      <style jsx>{`
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        .hero-image {
+          border-radius: 15px;
+          transition: transform 0.5s ease;
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-image:hover {
+          transform: rotate(360deg) scale(1.05);
+        }
+      `}</style>
     </section>
   );
 };

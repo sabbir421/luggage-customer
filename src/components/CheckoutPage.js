@@ -64,10 +64,6 @@ const CheckoutPage = ({ amount }) => {
     setLoading(false);
   };
 
-  // if (!clientSecret || !stripe || !elements) {
-  //   return <div>Loading...</div>;
-  // }
-
   return (
     <form onSubmit={handleCheckOut} className="bg-white p-2 rounded-md">
       <PaymentElement />

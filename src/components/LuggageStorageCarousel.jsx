@@ -2,7 +2,7 @@ import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-export default function LuggageStorageCarousel() {
+export default function LuggageStorageCarousel({area}) {
   const locations = [
     {
       image: "/img/paris1.jpg",
@@ -53,7 +53,7 @@ export default function LuggageStorageCarousel() {
     <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4 sm:px-8">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-          Top Luggage Storage Locations in Paris
+          Top Luggage Storage Locations in {area}
         </h2>
         <p className="mt-4 text-gray-600">
           Discover safe and convenient luggage storage spots around the city.
