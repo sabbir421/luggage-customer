@@ -53,10 +53,11 @@ export default function Bookingdata() {
     selectedStore?.price * numOfDays * quantity + selectedStore?.tax;
 
   const data = {
-    price: selectedStore?.price * quantity,
+    storeName:selectedStore?.storeName,
+    price: totalPrice-selectedStore?.tax,
     customerName: loginUser?.name,
     customerId: loginUser?.id,
-    storeName: selectedStore?.storeName,
+    storeName: selectedStore?.businessName,
     storeId: selectedStore?.id,
     providerName: selectedStore?.providerName,
     providerID: selectedStore?.providerID,
@@ -76,6 +77,7 @@ export default function Bookingdata() {
     currencySymbol: selectedStore?.currencySymbol,
     currencyCode: selectedStore?.currencyCode,
     hour: diffTime,
+    country:selectedStore?.countryName
   };
 
   const handleIncreaseQuantity = () => {
@@ -247,14 +249,17 @@ export default function Bookingdata() {
               </IconButton>
             </Grid>
             <Grid item xs={12} sx={{ mt: 2 }}>
-              <Typography variant="h6" fontWeight="bold" sx={{ mb: 1 }}>
-                Total: {selectedStore?.currencySymbol}
-                {totalPrice}
-              </Typography>
               <Typography variant="body1">
                 Days: {numOfDays} | Price per day:{" "}
                 {selectedStore?.currencySymbol}
                 {selectedStore?.price}
+              </Typography>
+              <Typography variant="body1">
+                Tax per order : {selectedStore?.tax}
+              </Typography>
+              <Typography variant="h6" fontWeight="bold" sx={{ mb: 1 }}>
+                Total: {selectedStore?.currencySymbol}
+                {totalPrice}
               </Typography>
             </Grid>
           </Grid>

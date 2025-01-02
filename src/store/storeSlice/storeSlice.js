@@ -1,16 +1,15 @@
 /** @format */
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { privateGet } from "../../utils/apiCaller";
+import { privateGet, publicGet } from "../../utils/apiCaller";
 import { NullIcon } from "@icons/material";
 
 export const fetchStoreList = createAsyncThunk(
   "store list",
   async ({ token, lat, lan, allDay, rating }, { rejectWithValue }) => {
     try {
-      const response = await privateGet(
-        `/luggage/store/near/${lat}/${lan}/${rating}/${allDay}`,
-        token
+      const response = await publicGet(
+        `/luggage/store/near/${lat}/${lan}/${rating}/${allDay}`
       );
 
       return response.payload;

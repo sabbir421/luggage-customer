@@ -31,11 +31,12 @@ const Hero = ({ area }) => {
         })
       );
 
-      if (token) {
-        router.push("/clientslandingone");
-      } else {
-        router.push("/login");
-      }
+      // if (token) {
+      //   router.push("/clientslandingone");
+      // } else {
+      //   router.push("/login");
+      // }
+      router.push("/clientslandingone");
     }
   };
 

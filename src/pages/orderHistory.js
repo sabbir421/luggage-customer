@@ -139,17 +139,18 @@ const BookingHistoryCard = () => {
                     Price:{" "}
                     <span className="font-bold">
                       {order?.currencySymbol}
-                      {order?.price}
+                      {order?.total - order?.tax}
                     </span>
-                  </p>
-                  <p>
-                    Subtotal: {order?.currencySymbol}
-                    {order?.subTotal}
                   </p>
                   <p>
                     Tax: {order?.currencySymbol}
                     {order?.tax}
                   </p>
+                  <p>
+                    Total: {order?.total} {order?.currencySymbol}
+                    {order?.subTotal}
+                  </p>
+
                   <p className="font-bold text-lg">
                     Payment Status:{" "}
                     <span

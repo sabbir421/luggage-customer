@@ -40,6 +40,16 @@ const ClientLandingNav = () => {
       pathname: "/orderHistory",
     });
   };
+  const handleNewBooking = () => {
+    router.push({
+      pathname: "/clientslandingone",
+    });
+  };
+  const handleHome = () => {
+    router.push({
+      pathname: "/",
+    });
+  };
   const toggleHoverBox = () => {
     setIsHovered((prev) => !prev);
   };
@@ -105,20 +115,26 @@ const ClientLandingNav = () => {
     await dispatch(clearStoreData());
     await dispatch(clearBookingData());
   };
+  const handleLogoClick = () => {
+    router.push({
+      pathname: "/",
+    });
+  };
 
   return (
     <nav className="mb-[10px] flex flex-wrap items-center justify-between p-4 overflow-hidden">
       <div className="flex justify-center items-center">
         <Image
+          onClick={handleLogoClick}
           src={navLogo}
           alt="logo"
           className="h-[54px] w-[150px]"
           style={{ marginLeft: "20px" }}
         />
       </div>
+
       <div className="px-3 w-[100%] flex justify-between items-center gap-3 relative">
-       
-        <div style={{ marginLeft: "95%",marginTop:"-50px" }}>
+        <div style={{ marginLeft: "95%", marginTop: "-50px" }}>
           <IconButton
             size="large"
             aria-label="account of current user"
@@ -145,6 +161,8 @@ const ClientLandingNav = () => {
             onClose={handleClose}
           >
             <MenuItem onClick={handleHistory}>History</MenuItem>
+            <MenuItem onClick={handleHome}>Home</MenuItem>
+            <MenuItem onClick={handleNewBooking}>Another booking</MenuItem>
             <MenuItem onClick={handleLogout}>Log out</MenuItem>
           </Menu>
         </div>
