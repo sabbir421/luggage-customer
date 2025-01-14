@@ -23,6 +23,7 @@ import { fetchStoreList } from "../store/storeSlice/storeSlice";
 import { setSelectedStore } from "../store/storeSlice/storeSlice";
 
 import PrivateRoute from "../components/PrivateRoute";
+import Footer from "../components/Footer";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -365,6 +366,7 @@ const Clientslandingone = () => {
           </GoogleMap>
         </div>
       </div>
+      <Footer/>
     </section>
   );
 };

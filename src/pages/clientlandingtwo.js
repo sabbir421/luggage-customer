@@ -28,6 +28,7 @@ import {
   setBookingInfo,
 } from "@/store/bookingSlice.js/bookingSlice";
 import PrivateRoute from "@/components/PrivateRoute";
+import Footer from "../components/Footer";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -628,6 +629,7 @@ const Clientlandingtwo = () => {
           </div>
         </div>
         {/* end ---> */}
+        <Footer/>
       </section>
     </PrivateRoute>
   );

@@ -123,16 +123,12 @@ const ClientLandingNav = () => {
 
   return (
     <nav className="mb-[10px] flex flex-wrap items-center justify-between p-4 overflow-hidden">
-      <div className="flex justify-center items-center">
-        <Image
-          onClick={handleLogoClick}
-          src={navLogo}
-          alt="logo"
-          className="h-[54px] w-[150px]"
-          style={{ marginLeft: "20px" }}
-        />
+      <div className="flex justify-center items-center  p-4 rounded-lg ">
+        <h1 className="text-4xl font-bold  tracking-wider  uppercase" style={{textAlign:"center"}}>
+          <span className="text-yellow-300">L</span>uggage
+          <span className="text-green-300">K</span>eepers
+        </h1>
       </div>
-
       <div className="px-3 w-[100%] flex justify-between items-center gap-3 relative">
         <div style={{ marginLeft: "95%", marginTop: "-50px" }}>
           <IconButton

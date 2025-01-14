@@ -4,6 +4,8 @@ import Box from "@mui/material/Box";
 import BookingInfo from "../components/BookingInfo";
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 import { useSelector } from "react-redux";
+import Footer from "../components/Footer";
+import ClientLandingNav from "../components/ClientLandingNav";
 
 const mapContainerStyle = {
   width: "100%", // Ensures full width
@@ -34,7 +36,9 @@ export default function CheckoutPage() {
   }
 
   return (
+    
     <Box sx={{ height: "100vh" }}>
+      <ClientLandingNav/>
       <Grid container spacing={3}>
         {/* First column */}
         <Grid item xs={12} sm={4}>
@@ -73,6 +77,7 @@ export default function CheckoutPage() {
           </div>
         </Grid>
       </Grid>
+      <Footer/>
     </Box>
   );
 }
