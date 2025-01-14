@@ -1,4 +1,4 @@
-export default function WhyChooseUs() {
+export default function WhyChooseUs({area}) {
   const features = [
     {
       icon: "🌍", // Unicode emoji
@@ -31,13 +31,13 @@ export default function WhyChooseUs() {
     <div className="bg-gray-100 py-16 px-8">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-gray-800">
-          Why is Nannybag the best luggage storage in Paris?
+          Why is Luggage Keeperes the best luggage storage in {area} ?
         </h2>
         <p className="mt-4 text-gray-600">
-          As a convenient, affordable, and fully insured service, Nannybag is a
+          As a convenient, affordable, and fully insured service, Luggagekeepers is a
           platform that connects you with local hotels and stores with extra
           space to store your luggage. By entrusting your bag or suitcase to
-          Nannybag in Paris, you are choosing:
+          luggagekeepers in {area}, you are choosing:
         </p>
       </div>
 

@@ -68,13 +68,13 @@ const Indonesia = () => {
           <HowItWorksSection />
         </section>
         <section>
-          <WhyChooseUs />
+          <WhyChooseUs area={"Indonesia"}/>
         </section>
         <section>
-          <LuggageStorageCarousel />
+          <LuggageStorageCarousel area={"Indonesia"}/>
         </section>
         <section>
-          <CityGuideSection />
+          <CityGuideSection area={"Indonesia"}/>
         </section>
 
         <section>

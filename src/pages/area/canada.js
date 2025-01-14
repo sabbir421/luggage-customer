@@ -62,19 +62,19 @@ const Toronto = () => {
   return (
     <RootLayout>
       <main className="flex min-h-screen flex-col justify-between pl-4 pr-4">
-        <Hero area={" in Toronto"} />
+        <Hero area={" in Canada"} />
 
         <section>
           <HowItWorksSection />
         </section>
         <section>
-          <WhyChooseUs />
+          <WhyChooseUs area={"Canada"}/>
         </section>
         <section>
-          <LuggageStorageCarousel />
+          <LuggageStorageCarousel area={"Canada"}/>
         </section>
         <section>
-          <CityGuideSection />
+          <CityGuideSection area={"Canada"}/>
         </section>
 
         <section>

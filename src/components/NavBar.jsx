@@ -81,10 +81,8 @@ const NavBar = () => {
     });
   };
   const handleLogout = async () => {
-    signOut(auth,googleProvider)
-      .then(() => {
-        
-      })
+    signOut(auth, googleProvider)
+      .then(() => {})
       .catch((error) => {
         // An error happened.
       });
@@ -95,28 +93,27 @@ const NavBar = () => {
 
   return (
     <nav className="mb-[10px] flex flex-wrap items-center justify-between p-2">
-      <div className="flex justify-center items-center">
-        <Image
-          src={navLogo}
-          alt="logo"
-          className="h-[54px] w-[150px]"
-          style={{ marginLeft: "20px" }}
-        />
-      </div>
+<div className="flex justify-center items-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 rounded-lg shadow-lg">
+  <h1 className="text-4xl font-bold text-white tracking-wider drop-shadow-lg uppercase">
+    <span className="text-yellow-300">L</span>uggage 
+    <span className="text-green-300">K</span>eepers
+  </h1>
+</div>
+
       <div className="flex flex-wrap justify-center items-center gap-3 relative">
-        <button
+        {/* <button
           onClick={becomePartner}
           className="text-[#373333] hover:bg-yellow-50 hover:rounded-lg font-normal p-2 bg-transparent border-none cursor-pointer"
         >
           Become a Partner
-        </button>
+        </button> */}
         <div className="relative">
-          <h1
+          {/* <h1
             className="text-[#373333] font-normal cursor-pointer"
             onClick={toggleHoverBox}
           >
             Download Doorap
-          </h1>
+          </h1> */}
           {isHovered && (
             <div
               ref={hoverBoxRef}

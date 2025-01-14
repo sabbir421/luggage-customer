@@ -71,58 +71,80 @@ const FAQSection = () => {
 
   const faqData = [
     {
-      question: "What is Nannybag luggage storage?",
+      question: "What is LuggageKeepers luggage storage?",
       answer:
-        "Nannybag is a secure luggage storage solution that partners with trusted local businesses.",
+        "LuggageKeepers is a secure luggage storage solution that partners with trusted local businesses to provide convenient storage options.",
     },
     {
-      question: "How to book luggage storage?",
+      question: "How to book luggage storage with LuggageKeepers?",
       answer:
-        "Simply search for your location, choose a storage spot, and book online.",
+        "Simply search for your location on our website, choose a nearby storage spot, and book online in just a few clicks.",
     },
     {
-      question: "Is there left luggage near me?",
+      question: "Is there luggage storage near me?",
       answer:
-        "Yes, you can find locations near you by using our search feature.",
+        "Yes, you can easily find luggage storage locations near you by using our search feature with your current location or destination.",
     },
     {
-      question: "How much does luggage storage cost?",
-      answer: "Prices start as low as £5 per bag for 24 hours.",
+      question: "How much does luggage storage cost with LuggageKeepers?",
+      answer: "Prices start as low as £5 per bag for 24 hours, offering affordable and secure storage options.",
     },
     {
-      question: "What does the Nannybag protection cover?",
-      answer: "Your bags are insured up to £1000 during storage.",
+      question: "What does the LuggageKeepers protection cover?",
+      answer: "Your bags are insured up to £1000 during the storage period for added peace of mind.",
     },
     {
-      question: "What can I store in the left luggage?",
-      answer: "You can store suitcases, backpacks, and other personal items.",
-    },
-    {
-      question: "Is storing bulky luggage more expensive?",
-      answer: "No, prices are based on a per-bag rate, regardless of size.",
-    },
-    {
-      question: "Is there left luggage near me?",
+      question: "What can I store with LuggageKeepers?",
       answer:
-        "Yes, you can find locations near you by using our search feature.",
+        "You can store suitcases, backpacks, and other personal items, as long as they comply with our storage policy.",
     },
     {
-      question: "How much does luggage storage cost?",
-      answer: "Prices start as low as £5 per bag for 24 hours.",
+      question: "Is storing bulky luggage more expensive with LuggageKeepers?",
+      answer:
+        "No, prices are based on a per-bag rate, regardless of the size or weight of the luggage.",
     },
     {
-      question: "What does the Nannybag protection cover?",
-      answer: "Your bags are insured up to £1000 during storage.",
+      question: "How do I find the best luggage storage locations?",
+      answer:
+        "Use the LuggageKeepers search tool to filter by location, ratings, and operating hours to find the best option for your needs.",
     },
     {
-      question: "What can I store in the left luggage?",
-      answer: "You can store suitcases, backpacks, and other personal items.",
+      question: "Can I store my luggage overnight with LuggageKeepers?",
+      answer:
+        "Yes, our service allows you to store your luggage overnight or for multiple days with competitive pricing.",
     },
     {
-      question: "Is storing bulky luggage more expensive?",
-      answer: "No, prices are based on a per-bag rate, regardless of size.",
+      question: "Are LuggageKeepers storage locations secure?",
+      answer:
+        "Absolutely! We partner with vetted and trusted businesses to ensure your belongings are stored safely.",
+    },
+    {
+      question: "Does LuggageKeepers have storage options near airports or train stations?",
+      answer:
+        "Yes, we offer convenient storage spots near major airports, train stations, and city centers worldwide.",
+    },
+    {
+      question: "How do I cancel or modify my luggage storage booking?",
+      answer:
+        "You can easily modify or cancel your booking by accessing your account and following the instructions provided.",
+    },
+    {
+      question: "Does LuggageKeepers offer discounts for multiple bags?",
+      answer:
+        "Yes, we provide discounts for group bookings or when storing multiple bags. Check our website for more details.",
+    },
+    {
+      question: "What payment methods does LuggageKeepers accept?",
+      answer:
+        "We accept major credit cards, debit cards, and digital wallets like Apple Pay and Google Pay for your convenience.",
+    },
+    {
+      question: "Can I book luggage storage in advance with LuggageKeepers?",
+      answer:
+        "Yes, you can book storage in advance to secure your spot and avoid last-minute hassle.",
     },
   ];
+  
 
   return (
     <FAQContainer style={{marginTop:"30px"}}>

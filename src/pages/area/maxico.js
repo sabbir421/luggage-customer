@@ -68,13 +68,13 @@ const Maxico = () => {
           <HowItWorksSection />
         </section>
         <section>
-          <WhyChooseUs />
+          <WhyChooseUs area={"Maxico"}/>
         </section>
         <section>
-          <LuggageStorageCarousel />
+          <LuggageStorageCarousel area={"Maxico"}/>
         </section>
         <section>
-          <CityGuideSection />
+          <CityGuideSection area={"Maxico"}/>
         </section>
 
         <section>

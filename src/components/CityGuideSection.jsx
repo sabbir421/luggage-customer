@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function CityGuideSection() {
+export default function CityGuideSection({area}) {
   const guides = [
     {
       image: "/img/paris1.jpg", // Replace with your image paths
@@ -31,9 +31,9 @@ export default function CityGuideSection() {
   return (
     <div className="bg-gray-50 py-16 px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-800">Find your Paris city guide</h2>
+        <h2 className="text-3xl font-bold text-gray-800">Find your {area} Guide</h2>
         <p className="mt-4 text-gray-600">
-          Explore the best tips and advice to make your Paris experience unforgettable.
+          Explore the best tips and advice to make your {area} experience unforgettable.
         </p>
       </div>
 
