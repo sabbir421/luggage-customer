@@ -39,10 +39,10 @@ const Privacy = () => {
 
   return (
     <div style={containerStyle}>
-      <div style={titleStyle}>Doorap App Privacy Policy</div>
+      <div style={titleStyle}>Luggagekeepers App Privacy Policy</div>
 
       <p style={textStyle}>
-        Thank you for choosing Doorap ("we", "us", "our")! We are committed to
+        Thank you for choosing luggagekeepers ("we", "us", "our")! We are committed to
         protecting your privacy and providing you with a safe and secure
         experience when using our mobile application (the "App"). This Privacy
         Policy explains how we collect, use, and disclose your personal
@@ -103,7 +103,7 @@ const Privacy = () => {
           <strong>For Legal Purposes:</strong> We may disclose your information
           to comply with applicable laws, regulations, legal processes, or
           government requests, or to protect the rights, property, or safety of
-          Doorap, our users, or others.
+          Luggagekeepers, our users, or others.
         </li>
       </ul>
 
@@ -155,7 +155,7 @@ const Privacy = () => {
       <h3 style={sectionTitleStyle}>8. Contact Us:</h3>
       <p style={textStyle}>
         If you have any questions or concerns about this Privacy Policy or our
-        data practices, please contact us at support@doorap.com
+        data practices, please contact us at support@luggagekeepers.com
       </p>
 
       <p style={textStyle}>

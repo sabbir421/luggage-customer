@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/Add";
 import Image from "next/image";
-const luggagePerson = require("../images/luggagePerson1.jpg");
+const luggagePerson = require("../images/fq.jpg");
 
 const FAQContainer = styled("div")(({ theme }) => ({
   maxWidth: "100%",
@@ -153,7 +153,7 @@ const FAQSection = () => {
         <Image
           src={luggagePerson}
           alt="Luggage storage"
-          style={{height:"100%",width:"100%"}}
+          style={{height:"100%",width:"80%"}}
           quality={100}
         />
       </ImageContainer>

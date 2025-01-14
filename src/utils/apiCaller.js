@@ -1,7 +1,6 @@
 /** @format */
 
 import axios from "axios";
-// export const api = "https://doorapp-backend-test.onrender.com";
  export const api = process.env.NEXT_PUBLIC_API;
 console.log("------------------api--------------", api);
 

@@ -93,12 +93,12 @@ const NavBar = () => {
 
   return (
     <nav className="mb-[10px] flex flex-wrap items-center justify-between p-2">
-<div className="flex justify-center items-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 rounded-lg shadow-lg">
-  <h1 className="text-4xl font-bold text-white tracking-wider drop-shadow-lg uppercase">
-    <span className="text-yellow-300">L</span>uggage 
-    <span className="text-green-300">K</span>eepers
-  </h1>
-</div>
+      <div className="flex justify-center items-center  p-4 rounded-lg ">
+        <h1 className="text-4xl font-bold  tracking-wider  uppercase" style={{textAlign:"center"}}>
+          <span className="text-yellow-300">L</span>uggage
+          <span className="text-green-300">K</span>eepers
+        </h1>
+      </div>
 
       <div className="flex flex-wrap justify-center items-center gap-3 relative">
         {/* <button

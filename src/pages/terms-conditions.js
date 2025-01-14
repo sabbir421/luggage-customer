@@ -39,11 +39,11 @@ const TermsCondition = () => {
 
   return (
     <div style={containerStyle}>
-      <div style={titleStyle}>Doorap User Terms and Conditions</div>
+      <div style={titleStyle}>Luggagekeepers User Terms and Conditions</div>
 
       <p style={textStyle}>
-        Thank you for choosing Doorap ("we", "us", "our")! These Terms and
-        Conditions ("Terms") govern your use of the Doorap mobile application
+        Thank you for choosing Luggagekeepers ("we", "us", "our")! These Terms and
+        Conditions ("Terms") govern your use of the Luggagekeepers mobile application
         (the "App") and any services provided through the App. By accessing or
         using the App, you agree to be bound by these Terms.
       </p>
@@ -118,7 +118,7 @@ const TermsCondition = () => {
           unlawful, offensive, or infringes upon the rights of others.
         </li>
         <li style={textStyle}>
-          By submitting content through the App, you grant Doorap a
+          By submitting content through the App, you grant Luggagekeepers a
           non-exclusive, royalty-free, perpetual, irrevocable, and fully
           sublicensable right to use, reproduce, modify, adapt, publish,
           translate, create derivative works from, distribute, and display such
@@ -136,7 +136,7 @@ const TermsCondition = () => {
         <li style={textStyle}>
           You agree not to modify, reproduce, distribute, transmit, display, or
           create derivative works based on the App or its content without the
-          prior written consent of Doorap.
+          prior written consent of Luggagekeepers.
         </li>
       </ul>
 
@@ -147,7 +147,7 @@ const TermsCondition = () => {
           any warranties of any kind, either express or implied.
         </li>
         <li style={textStyle}>
-          Doorap does not warrant that the App will be error-free,
+          Luggagekeepers does not warrant that the App will be error-free,
           uninterrupted, secure, or free from viruses or other harmful
           components.
         </li>
@@ -156,7 +156,7 @@ const TermsCondition = () => {
       <h3 style={sectionTitleStyle}>8. Limitation of Liability:</h3>
       <ul style={listStyle}>
         <li style={textStyle}>
-          In no event shall Doorap be liable for any indirect, incidental,
+          In no event shall Luggagekeepers be liable for any indirect, incidental,
           special, consequential, or punitive damages, including but not limited
           to loss of profits, data, or goodwill, arising out of or in connection
           with your use of the App.
@@ -176,7 +176,7 @@ const TermsCondition = () => {
       <h3 style={sectionTitleStyle}>10. Changes to Terms:</h3>
       <ul style={listStyle}>
         <li style={textStyle}>
-          Doorap reserves the right to update or modify these Terms at any time
+          Luggagekeepers reserves the right to update or modify these Terms at any time
           without prior notice. Any changes to these Terms will be effective
           immediately upon posting on the App.
         </li>
@@ -185,11 +185,11 @@ const TermsCondition = () => {
       <h3 style={sectionTitleStyle}>11. Contact Us:</h3>
       <p style={textStyle}>
         If you have any questions or concerns about these Terms or our services,
-        please contact us at support@doorap.com
+        please contact us at support@Luggagekeepers.com
       </p>
 
       <p style={textStyle}>
-        Thank you for using Doorap. By using the App, you acknowledge that you
+        Thank you for using Luggagekeepers. By using the App, you acknowledge that you
         have read, understood, and agree to be bound by these Terms.
       </p>
     </div>

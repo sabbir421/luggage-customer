@@ -10,9 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 const dm = DM_Sans({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Doorap",
+  title: "Luggagekeepers",
   description:
-    "Securely store your bags and luggage at our verified storage spots across United Kingdom & France",
+    "Securely store your bags and luggage at our verified storage spots neear you",
 };
 
 export default function RootLayout({ children }) {

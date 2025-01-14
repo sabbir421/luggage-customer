@@ -565,7 +565,7 @@ const Clientlandingtwo = () => {
                 <div className="flex w-[100%] justify-between items-center p-[3px]  ">
                   <div className="flex justify-center items-center gap-[4px] ">
                     <p className="text-[#1C1C28] font-normal ">
-                      You accept Doorap’s
+                      You accept luggagekeepers
                       <span className="text-[#1C1C28] font-bold ">
                         Terms of Service
                       </span>

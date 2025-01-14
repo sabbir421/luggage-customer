@@ -117,8 +117,8 @@ const Contact = () => {
                     Have questions or need assistance? We're here to help! Reach out and we'll get back to you as soon as possible.
                 </p>
                 <p className="text-2xl font-semibold">
-                    <a href="mailto:support@doorap.com" className="text-purple-600 hover:text-purple-800 underline decoration-dotted decoration-purple-400 hover:decoration-wavy transition-all">
-                        support@doorap.com
+                    <a href="mailto:support@luggagekeepers.com" className="text-purple-600 hover:text-purple-800 underline decoration-dotted decoration-purple-400 hover:decoration-wavy transition-all">
+                        support@luggagekeepers.com
                     </a>
                 </p>
                 <div className="mt-10">

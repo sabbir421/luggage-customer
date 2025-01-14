@@ -2,25 +2,22 @@
 
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
-import heroImg from "../images/luggage4.png";
+import heroImg from "../images/tourist1.png";
 import { LoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSearchLocation } from "../store/storeSlice/storeSlice";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button, Grid } from "@mui/material";
 
 const Hero = ({ area }) => {
   const router = useRouter();
-  const { token } = useSelector((state) => state.userData);
   const dispatch = useDispatch();
-  const [searchQuery, setSearchQuery] = useState("");
   const inputRef = useRef();
 
   const handlePlaceChange = () => {
     const [place] = inputRef.current.getPlaces();
-
     if (place) {
       const lat = place.geometry.location.lat();
       const lng = place.geometry.location.lng();
@@ -30,12 +27,6 @@ const Hero = ({ area }) => {
           mapLan: lng,
         })
       );
-
-      // if (token) {
-      //   router.push("/clientslandingone");
-      // } else {
-      //   router.push("/login");
-      // }
       router.push("/clientslandingone");
     }
   };
@@ -43,214 +34,131 @@ const Hero = ({ area }) => {
   return (
     <section
       style={{
-        background: "linear-gradient(135deg, #f5f7fa, #c3cfe2)",
-        padding: "20px",
-        borderRadius: "15px",
+        padding: "80px 20px",
+        background: "linear-gradient(120deg, #ff4081, #ff80ab)",
+        color: "#fff",
+        minHeight: "100vh",
+        textAlign: "center",
       }}
-      className="flex flex-col md:flex-row items-center gap-8"
     >
-      {/* Left side content */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "start",
-          textAlign: "left",
-          maxWidth: "600px",
-        }}
-      >
-        <Typography
-          variant="h2"
-          sx={{
-            fontFamily: "'Playfair Display', serif",
-            fontWeight: 700,
-            fontSize: { xs: "1.2rem", sm: "1.8rem", md: "3.5rem" },
-            color: "#222",
-            textAlign: "center",
-            position: "relative",
-            overflow: "hidden",
-            marginBottom: "1.5rem",
-            letterSpacing: "2px",
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              left: "0",
-              bottom: "-5px",
-              width: "100%",
-              height: "5px",
-              background: "linear-gradient(90deg, #ff9a9e, #fad0c4)",
-              zIndex: 1,
-              transform: "scaleX(0)",
-              transformOrigin: "left",
-              transition: "transform 0.4s ease-in-out",
-            },
-            "&:hover::before": {
-              transform: "scaleX(1)",
-            },
-            "&:hover": {
-              color: "linear-gradient(90deg, #ff9a9e, #fad0c4)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            },
-            "& span": {
-              display: "inline-block",
-              animation: "float 3s ease-in-out infinite",
-            },
-            "@keyframes float": {
-              "0%, 100%": { transform: "translateY(0)" },
-              "50%": { transform: "translateY(-10px)" },
-            },
-          }}
-        >
-          Discover The Nearest <span>Luggage Store</span> {area || ""}
-        </Typography>
-
-        <Typography
-          variant="h6"
-          sx={{
-            fontFamily: "'Raleway', sans-serif",
-            fontWeight: 600,
-            fontSize: { xs: "1.2rem", sm: "1.8rem", md: "2.5rem" },
-            color: "transparent",
-            backgroundImage: "linear-gradient(45deg, #ff512f, #dd2476)",
-            backgroundClip: "text",
-            textFillColor: "transparent",
-            textAlign: "center",
-            textShadow: "0px 3px 8px rgba(255, 81, 47, 0.5)",
-            marginBottom: "1rem",
-            transition: "transform 0.3s ease, text-shadow 0.5s ease",
-            "&:hover": {
-              transform: "scale(1.1)",
-              textShadow: "0px 5px 15px rgba(255, 81, 47, 0.8)",
-            },
-            "&::after": {
-              content: '""',
-              display: "block",
-              width: "60%",
-              height: "2px",
-              margin: "0.5rem auto 0",
-              background: "linear-gradient(90deg, #ff512f, #dd2476)",
-              borderRadius: "1px",
-              transition: "width 0.3s ease",
-            },
-            "&:hover::after": {
-              width: "80%",
-            },
-          }}
-        >
-          Only From $4/Day
-        </Typography>
-
-        <Box
-          sx={{
-            mt: 4,
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-          }}
-        >
-          <LoadScript
-            googleMapsApiKey="AIzaSyDaIOHljSeGOAM5dEgOecGc4GE1NfSWZQg"
-            libraries={["places"]}
-          >
-            <StandaloneSearchBox
-              onLoad={(ref) => (inputRef.current = ref)}
-              onPlacesChanged={handlePlaceChange}
-            >
-              <input
-                type="text"
-                placeholder="Enter your location"
-                required
-                style={{
-                  width: "100%",
-                  padding: "12px",
-                  borderRadius: "8px",
-                  border: "1px solid #ddd",
-                  marginBottom: "10px",
-                  fontSize: "1rem",
-                }}
-              />
-            </StandaloneSearchBox>
-          </LoadScript>
-        </Box>
-
-        <Box
-          sx={{
-            display: "flex",
-            gap: 3,
-            mt: 3,
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          {["SECURED", "CHEAP", "EASY"].map((text) => (
-            <Box
-              key={text}
+      {/* Grid for responsive layout */}
+      <Grid container spacing={2} justifyContent="center">
+        {/* Left side content */}
+        <Grid item xs={12} md={6}>
+          <Box sx={{ maxWidth: "100%", textAlign: "center" }}>
+            <Typography
+              variant="h2"
               sx={{
-                padding: "12px 24px",
-                borderRadius: "50px",
-                fontWeight: "600",
-                fontSize: "1rem",
-                textAlign: "center",
-                color: "#222",
-                background: "linear-gradient(145deg, #f3f4f6, #e5e7eb)",
-                boxShadow:
-                  "4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px #ffffff",
-                transition: "all 0.3s ease-in-out",
-                cursor: "pointer",
-                "&:hover": {
-                  transform: "scale(1.1)",
-                  boxShadow:
-                    "8px 8px 20px rgba(0, 0, 0, 0.15), -8px -8px 20px #ffffff",
-                  background: "linear-gradient(145deg, #e2e8f0, #cbd5e1)",
-                  color: "#007bff",
-                },
+                fontFamily: "'Poppins', sans-serif",
+                fontWeight: 700,
+                fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4rem" },
+                color: "#fff",
+                marginBottom: "1.5rem",
+                textTransform: "uppercase",
+                letterSpacing: "1.5px",
+                animation: "fadeIn 1.2s ease-in-out",
               }}
             >
-              {text}
+              Find Luggage Storage Near You {area || ""}
+            </Typography>
+
+            <Typography
+              variant="h6"
+              sx={{
+                fontFamily: "'Roboto', sans-serif",
+                fontWeight: 400,
+                fontSize: { xs: "1.2rem", sm: "1.5rem", md: "1.8rem" },
+                marginBottom: "2rem",
+                color: "#fff",
+                animation: "fadeIn 1.4s ease-in-out",
+              }}
+            >
+              Rent luggage from top stores, starting at just $4/day.
+            </Typography>
+
+            <Box
+              sx={{
+                width: "100%",
+                marginBottom: "2rem",
+                animation: "fadeIn 1.6s ease-in-out",
+              }}
+            >
+              <LoadScript
+                googleMapsApiKey="AIzaSyDaIOHljSeGOAM5dEgOecGc4GE1NfSWZQg"
+                libraries={["places"]}
+              >
+                <StandaloneSearchBox
+                  onLoad={(ref) => (inputRef.current = ref)}
+                  onPlacesChanged={handlePlaceChange}
+                >
+                  <input
+                    type="text"
+                    placeholder="Search your location"
+                    required
+                    style={{
+                      width: "80%",
+                      padding: "14px",
+                      borderRadius: "8px",
+                      border: "none",
+                      fontSize: "1.2rem",
+                      // outline: "none",
+                      // boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                      marginBottom: "1rem",
+                      backgroundColor: "rgba(0, 0, 0, 0.6)",
+                    }}
+                  />
+                </StandaloneSearchBox>
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#ffeb3b",
+                    color: "#212121",
+                    padding: "12px 30px",
+                    borderRadius: "25px",
+                    fontSize: "1.2rem",
+                    fontWeight: "600",
+                    textTransform: "none",
+                    "&:hover": {
+                      backgroundColor: "#fbc02d",
+                    },
+                    transition: "all 0.3s ease",
+                  }}
+                  onClick={() => router.push("/clientslandingone")}
+                >
+                  Find Stores
+                </Button>
+              </LoadScript>
             </Box>
-          ))}
-        </Box>
-      </Box>
 
-      {/* Right side image */}
-      <Box
-        sx={{
-          width: { xs: "100%", md: "50%" },
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Image
-          src={heroImg}
-          alt="Luggage Storage Hero"
-          width={500}
-          height={300}
-          className="hero-image"
-        />
-      </Box>
+          </Box>
+          
+        </Grid>
 
-      {/* Hover rotation styles */}
-      <style jsx>{`
-        @keyframes rotate {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        .hero-image {
-          border-radius: 15px;
-          transition: transform 0.5s ease;
-          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-image:hover {
-          transform: rotate(360deg) scale(1.05);
-        }
-      `}</style>
+        {/* Right side image */}
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              transition: "transform 0.5s ease",
+              "&:hover": { transform: "scale(1.05)" },
+            }}
+          >
+            <Image
+              src={heroImg}
+              alt="Luggage Rental Hero"
+              width={400}
+              height={350}
+              style={{
+                borderRadius: "15px",
+                objectFit: "cover",
+                // boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+              }}
+            />
+          </Box>
+        </Grid>
+      </Grid>
     </section>
   );
 };

@@ -30,7 +30,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-8">
           {/* Logo & App Store Buttons Section */}
           <div className="space-y-4">
-            <h5 className="text-3xl font-extrabold text-white">DOORAP</h5>
+            <div className="flex justify-center items-center  p-4 rounded-lg ">
+              <h1
+                className="text-4xl font-bold  tracking-wider  uppercase"
+                style={{ textAlign: "center" }}
+              >
+                <span className="text-yellow-300">L</span>uggage
+                <span className="text-green-300">K</span>eepers
+              </h1>
+            </div>
             <div className="flex flex-col gap-4">
               <button
                 onClick={appStore}
@@ -96,7 +104,7 @@ const Footer = () => {
             <ul className="flex space-x-6 text-2xl">
               <li>
                 <a
-                  href="https://www.instagram.com/doorap.uk?igsh=MWZjNGFza2Q0b25hdw=="
+                  href="#"
                   target="_blank"
                   className="hover:text-white transition-transform duration-300 hover:scale-110"
                 >
@@ -105,7 +113,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://www.facebook.com/profile.php?id=61556335572862&mibextid=ZbWKwL"
+                  href="#"
                   target="_blank"
                   className="hover:text-white transition-transform duration-300 hover:scale-110"
                 >
@@ -114,7 +122,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/company/doorapltd/"
+                  href="#"
                   target="_blank"
                   className="hover:text-white transition-transform duration-300 hover:scale-110"
                 >
@@ -130,12 +138,12 @@ const Footer = () => {
 
         {/* Copyright Section */}
         <div className="text-center text-sm text-gray-500">
-          <span>© 2024 </span>
+          <span>© 2025 </span>
           <a
-            href="https://doorap.com"
+            href="https://luggagekeepers.com"
             className="font-semibold text-gray-300 hover:text-white transition-colors duration-300"
           >
-            doorap.com
+            luggagekeepers.com
           </a>
           <span> | All Rights Reserved</span>
         </div>
