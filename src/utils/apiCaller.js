@@ -2,7 +2,6 @@
 
 import axios from "axios";
  export const api = process.env.NEXT_PUBLIC_API;
-console.log("------------------api--------------", api);
 
 const config = {
   headers: {

@@ -16,18 +16,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import ClientLandingNav from "@/components/ClientLandingNav";
+import ClientLandingNav from "../components/ClientLandingNav";
 import { GoClockFill } from "react-icons/go";
 import { BsFillLuggageFill } from "react-icons/bs";
 import vect2 from "../images/vendor/vec.svg";
 import greenTick from "../images/vendor/greentick.svg";
 import convertToSubcurrency from "@/utils/convertToSubcurrency";
-import CheckoutPage from "@/components/CheckoutPage";
+import CheckoutPage from "../components/CheckoutPage";
 import {
   luggageBooking,
   setBookingInfo,
-} from "@/store/bookingSlice.js/bookingSlice";
-import PrivateRoute from "@/components/PrivateRoute";
+} from "../store/bookingSlice.js/bookingSlice";
+import PrivateRoute from "../components/PrivateRoute";
 import Footer from "../components/Footer";
 
 const libraries = ["places"];
