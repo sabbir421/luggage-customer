@@ -21,7 +21,7 @@ import { GoClockFill } from "react-icons/go";
 import { BsFillLuggageFill } from "react-icons/bs";
 import vect2 from "../images/vendor/vec.svg";
 import greenTick from "../images/vendor/greentick.svg";
-import convertToSubcurrency from "@/utils/convertToSubcurrency";
+import convertToSubcurrency from "../utils/convertToSubcurrency";
 import CheckoutPage from "../components/CheckoutPage";
 import {
   luggageBooking,

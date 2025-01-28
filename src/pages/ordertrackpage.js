@@ -10,13 +10,13 @@ import dayjs from "dayjs";
 import { useDispatch, useSelector } from "react-redux";
 
 // ---->
-import ClientLandingNav from "@/components/ClientLandingNav";
+import ClientLandingNav from "../components/ClientLandingNav";
 import { GoClockFill } from "react-icons/go";
 import { BsFillLuggageFill } from "react-icons/bs";
 import greenTick from "../images/vendor/greentick.svg";
 import tracLocation from "../images/LocationSolid.svg";
 import tracArro from "../images/traArr.svg";
-import PrivateRoute from "@/components/PrivateRoute";
+import PrivateRoute from "../components/PrivateRoute";
 
 const libraries = ["places"];
 
@@ -95,8 +95,7 @@ const Ordertrackpage = () => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude, accuracy } = position.coords;
-          console.log("---------------position-------------", position);
-
+         
           setCoords({
             lat: latitude,
             lng: longitude,
@@ -142,7 +141,6 @@ const Ordertrackpage = () => {
     }
   };
   const progress = getProgressPercentage(selectedOrder?.status);
-  console.log("-------------cords---------------", orderedStore);
 
   return (
     <PrivateRoute>
