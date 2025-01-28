@@ -86,9 +86,9 @@ const Clientslandingone = () => {
   };
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyDaIOHljSeGOAM5dEgOecGc4GE1NfSWZQg",
+    googleMapsApiKey: "AIzaSyAx4y25_6KntkbpgQ3DulOMasAW6MFwrXY",
     libraries,
-    mapIds: ["c374e90572703627"],
+    // mapIds: ["c374e90572703627"],
   });
 
   if (loadError) {
@@ -333,7 +333,7 @@ const Clientslandingone = () => {
             options={{
               disableDefaultUI: true,
               zoomControl: true,
-              mapId: "c374e90572703627",
+              // mapId: "c374e90572703627",
             }}
           >
             {storeList.map((store) => (
@@ -341,7 +341,7 @@ const Clientslandingone = () => {
                 key={store.id}
                 position={{ lat: store.mapLat, lng: store.mapLan }}
                 icon={{
-                  url: "/location.svg",
+                  url: "/location.png",
                   scaledSize: { width: 45, height: 45 },
                 }}
                 onMouseOver={() => handleMarkerHover(store.id)}
@@ -366,7 +366,7 @@ const Clientslandingone = () => {
           </GoogleMap>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </section>
   );
 };

@@ -609,7 +609,7 @@ const Clientlandingtwo = () => {
               options={{
                 disableDefaultUI: true,
                 zoomControl: true,
-                mapId: "c374e90572703627",
+                // mapId: "c374e90572703627",
               }}
             >
               {storeList.map((store) => (
@@ -620,7 +620,7 @@ const Clientlandingtwo = () => {
                     lng: selectedStore.mapLan,
                   }}
                   icon={{
-                    url: "/location.svg",
+                    url: "/location.png",
                     scaledSize: { width: 45, height: 45 },
                   }}
                 />
@@ -629,7 +629,7 @@ const Clientlandingtwo = () => {
           </div>
         </div>
         {/* end ---> */}
-        <Footer/>
+        <Footer />
       </section>
     </PrivateRoute>
   );

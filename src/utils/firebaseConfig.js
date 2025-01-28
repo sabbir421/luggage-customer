@@ -1,24 +1,19 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApp, getApps } from "firebase/app";
 import { getAuth, GoogleAuthProvider, OAuthProvider } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC9OxJshJa65R0XqCRLIg2lVEAaNVLFNAw",
-  authDomain: "new-doorap.firebaseapp.com",
-  projectId: "new-doorap",
-  storageBucket: "new-doorap.appspot.com",
-  messagingSenderId: "586361425469",
-  appId: "1:586361425469:web:7978eac3a52d52f2706454",
-  measurementId: "G-8PWWTVNHW3",
+  apiKey: "AIzaSyARZRVCW0-LRDCjC8Fs0TV4wrymWukPpQE",
+  authDomain: "keepers-c6cd4.firebaseapp.com",
+  projectId: "keepers-c6cd4",
+  storageBucket: "keepers-c6cd4.firebasestorage.app",
+  messagingSenderId: "779243286043",
+  appId: "1:779243286043:web:1b00e825b2ad4f3a3012be",
+  measurementId: "G-P526QKQWGH",
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();  // Check if app is already initialized
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
-
 export const appleProvider = new OAuthProvider("apple.com");

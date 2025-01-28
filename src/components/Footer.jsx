@@ -44,7 +44,12 @@ const Footer = () => {
                 onClick={appStore}
                 className="flex items-center gap-3 bg-gray-800 text-white rounded-lg px-4 py-2 transition-transform duration-300 hover:scale-105 hover:bg-gray-700"
               >
-                <Image src={appleIcon} alt="Apple Icon" className="w-6 h-6" />
+                <Image
+                  src={appleIcon}
+                  alt="Apple Icon"
+                  className="w-6 h-6 "
+                  style={{ color: "white", backgroundColor: "white" }}
+                />
                 <div>
                   <span className="block text-xs">Download on the</span>
                   <span className="font-semibold text-sm">App Store</span>

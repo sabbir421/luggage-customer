@@ -84,7 +84,7 @@ const Hero = ({ area }) => {
               }}
             >
               <LoadScript
-                googleMapsApiKey="AIzaSyDaIOHljSeGOAM5dEgOecGc4GE1NfSWZQg"
+                googleMapsApiKey="AIzaSyAx4y25_6KntkbpgQ3DulOMasAW6MFwrXY"
                 libraries={["places"]}
               >
                 <StandaloneSearchBox

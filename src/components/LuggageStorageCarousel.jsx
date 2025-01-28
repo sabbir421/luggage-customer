@@ -1,8 +1,22 @@
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import {
+  fetchStoreList,
+  fetchStoreListByCountry,
+} from "../store/storeSlice/storeSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function LuggageStorageCarousel({area}) {
+export default function LuggageStorageCarousel({ area }) {
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.userData);
+  const { storeList } = useSelector((state) => state.storeData);
+  console.log("---------------storeList-----------", storeList);
+
+  useEffect(() => {
+    dispatch(fetchStoreListByCountry({ token, country: area }));
+  }, [area, token]);
   const locations = [
     {
       image: "/img/paris1.jpg",
@@ -71,7 +85,7 @@ export default function LuggageStorageCarousel({area}) {
           containerClass="carousel-container"
           itemClass="px-4" // Add spacing between cards
         >
-          {locations.map((location, index) => (
+          {storeList.map((store, index) => (
             <div
               key={index}
               className="bg-white rounded-lg shadow-lg overflow-hidden"
@@ -79,8 +93,8 @@ export default function LuggageStorageCarousel({area}) {
               {/* Image Section */}
               <div className="relative w-full h-48">
                 <Image
-                  src={location.image}
-                  alt={location.title}
+                  src={store?.storeImageUrl}
+                  alt={store?.businessName}
                   fill
                   className="object-cover"
                 />
@@ -88,12 +102,23 @@ export default function LuggageStorageCarousel({area}) {
 
               {/* Content Section */}
               <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-800">{location.title}</h3>
+                <h3 className="text-lg font-bold text-gray-800">
+                  {store.businessName}
+                </h3>
                 <p className="text-sm text-gray-600 mt-2">
-                  <span className="text-yellow-500 font-medium">★ {location.rating}</span> -{" "}
-                  {location.reviews}
+                  <span className="text-yellow-500 font-medium">
+                    ★ {store.averageRating}
+                  </span>{" "}
                 </p>
-                <p className="text-lg font-semibold text-gray-700 mt-2">{location.price}</p>
+                <p className="text-sm text-gray-600 mt-2">
+                  <span className="text-yellow-500 font-medium">
+                    {store.address}
+                  </span>{" "}
+                </p>
+                <p className="text-lg font-semibold text-gray-700 mt-2">
+                  {store.currencySymbol} {store?.price}
+                  per day/luggage
+                </p>
 
                 <button className="mt-4 w-full py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-md hover:from-blue-600 hover:to-purple-700 transition-all">
                   Book Now

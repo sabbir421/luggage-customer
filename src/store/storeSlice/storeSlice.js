@@ -6,11 +6,23 @@ import { NullIcon } from "@icons/material";
 
 export const fetchStoreList = createAsyncThunk(
   "store list",
-  async ({ token, lat, lan, allDay, rating }, { rejectWithValue }) => {
+  async ({ token, lat, lan, allDay, rating, country }, { rejectWithValue }) => {
     try {
       const response = await publicGet(
         `/luggage/store/near/${lat}/${lan}/${rating}/${allDay}`
       );
+
+      return response.payload;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+export const fetchStoreListByCountry = createAsyncThunk(
+  "store list by country",
+  async ({ token, country }, { rejectWithValue }) => {
+    try {
+      const response = await publicGet(`/luggage/store/${country}`);
 
       return response.payload;
     } catch (err) {
@@ -40,6 +52,18 @@ export const storeSlice = createSlice({
       state.error = null;
     });
     builder.addCase(fetchStoreList.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action?.payload?.response?.data?.message;
+    });
+    builder.addCase(fetchStoreListByCountry.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchStoreListByCountry.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.storeList = action.payload;
+      state.error = null;
+    });
+    builder.addCase(fetchStoreListByCountry.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action?.payload?.response?.data?.message;
     });
