@@ -68,13 +68,13 @@ const UK = () => {
           <HowItWorksSection />
         </section>
         <section>
-          <WhyChooseUs area={"UK"}/>
+          <WhyChooseUs area={"United Kingdom"}/>
         </section>
         <section>
-          <LuggageStorageCarousel area={"UK"}/>
+          <LuggageStorageCarousel area={"United Kingdom"}/>
         </section>
         <section>
-          <CityGuideSection area={"UK"}/>
+          <CityGuideSection area={"United Kingdom"}/>
         </section>
 
         <section>
