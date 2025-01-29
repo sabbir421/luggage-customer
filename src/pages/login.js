@@ -1,8 +1,7 @@
 /** @format */
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import logp from "../images/logo.png";
-import bannarImage from "../images/banner2.png";
+import bannarImage from "../images/authenticate.png";
 import appleLogo from "../images/Apple.svg";
 import googleLogo from "../images/Google.svg";
 import {
@@ -122,15 +121,26 @@ const Login = () => {
     <section className="w-full h-screen flex flex-col lg:flex-row">
       {/* Slider */}
       <div className="flex justify-center items-center w-full lg:w-1/2 h-1/2 lg:h-full">
-        <Image src={bannarImage} alt="Banner" layout="responsive" objectFit="cover" />
+        <Image
+          src={bannarImage}
+          alt="Banner"
+          layout="responsive"
+          objectFit="cover"
+        />
       </div>
 
       {/* Login Form */}
       <div className="flex justify-center items-center w-full lg:w-1/2 h-full p-6">
         <div className="w-full max-w-md mx-auto">
           {/* Logo */}
-          <div className="flex justify-center mb-8">
-            <Image src={logp} alt="Logo" width={180} height={50} />
+          <div className="flex justify-center items-center  p-4 rounded-lg mb-4 ">
+            <h1
+              className="text-4xl font-bold  tracking-wider  uppercase"
+              style={{ textAlign: "center" }}
+            >
+              <span className="text-yellow-300">L</span>uggage
+              <span className="text-green-300">K</span>eepers
+            </h1>
           </div>
 
           {/* OTP or Phone Input */}
@@ -163,7 +173,7 @@ const Login = () => {
               <Button
                 onClick={sendOtp}
                 variant="contained"
-                style={{backgroundColor:"#f27804",marginTop:"20px"}}
+                style={{ backgroundColor: "#f27804", marginTop: "20px" }}
                 className="w-full mt-4"
               >
                 Continue
@@ -177,7 +187,9 @@ const Login = () => {
               onClick={signInWithGoogle}
               variant="outlined"
               className="w-1/3"
-              startIcon={<Image src={googleLogo} alt="Google" width={20} height={20} />}
+              startIcon={
+                <Image src={googleLogo} alt="Google" width={20} height={20} />
+              }
             >
               Google
             </Button>
@@ -186,7 +198,9 @@ const Login = () => {
               onClick={signInWithApple}
               variant="outlined"
               className="w-1/3"
-              startIcon={<Image src={appleLogo} alt="Apple" width={20} height={20} />}
+              startIcon={
+                <Image src={appleLogo} alt="Apple" width={20} height={20} />
+              }
             >
               Apple
             </Button>
