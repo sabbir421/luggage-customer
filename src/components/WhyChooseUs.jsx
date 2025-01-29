@@ -6,7 +6,7 @@ export default function WhyChooseUs({area}) {
     },
     {
       icon: "🔒", // Unicode emoji
-      title: "1,000€ luggage protection",
+      title: "2,000€ luggage protection",
     },
     {
       icon: "🔄", // Unicode emoji
